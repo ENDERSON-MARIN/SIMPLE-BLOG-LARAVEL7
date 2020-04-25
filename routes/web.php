@@ -13,10 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
+Route::get('/', function () {
+    return view('auth.login');
+});
+
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/post', 'PostController@post');
+
+Route::get('/profile', 'ProfileController@profile');
+
+Route::get('/category', 'CategoryController@category');
