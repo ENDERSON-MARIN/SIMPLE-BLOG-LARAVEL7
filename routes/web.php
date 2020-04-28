@@ -15,6 +15,10 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
+Route::get('/welcome', function () {
+    return view('welcome');
+});
+
 Route::get('/', function () {
     return view('auth.login');
 });
@@ -23,6 +27,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/post', 'PostController@post');
 
-Route::get('/profile', 'ProfileController@profile');
+Route::post('/addPost', 'PostController@addPost');
 
 Route::get('/category', 'CategoryController@category');
+
+Route::post('/addCategory', 'CategoryController@addCategory');
+

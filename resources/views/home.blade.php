@@ -5,19 +5,28 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Dashboard</div>
+                <div class="card-header">ALLS POSTS</div>
 
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
+                    @if(count($posts) > 0)
+                            @foreach($posts->all() as $post)
+                            <h4>{{$post->post_title}}</h4>
+                            <img src="{{$post->post_image}}">
+                            <p>{{$post->post_body}}</p>
+                            @endforeach
+                    @else
+                        <p>No Post Available</p>
                     @endif
-
-                    You are logged in!
                 </div>
             </div>
         </div>
     </div>
 </div>
 @endsection
+
+
+        
+
+    
+
+
